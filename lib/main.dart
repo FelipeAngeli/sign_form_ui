@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sign_form_ui/core/style.dart';
 
-import 'app/pages/sign_ip_page.dart';
 import 'app/pages/sign_up_page.dart';
 
 void main() {

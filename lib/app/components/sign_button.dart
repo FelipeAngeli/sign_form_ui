@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sign_form_ui/app/pages/sign_ip_page.dart';
 import 'package:sign_form_ui/core/style.dart';
 
 class SignButton extends StatelessWidget {
@@ -31,14 +32,25 @@ class SignButton extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              Text(
-                textLink,
-                style: Theme.of(context).textTheme.headline5,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignInPage()));
+                },
+                child: Text(
+                  textLink,
+                  style: Theme.of(context).textTheme.headline5,
+                ),
               ),
             ],
           ),
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const SignInPage()));
+            },
             elevation: 0.0,
             backgroundColor: AppStyles.colorPrimary,
             child: const Icon(Icons.arrow_forward_outlined),
