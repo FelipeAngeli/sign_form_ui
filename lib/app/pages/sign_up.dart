@@ -40,7 +40,7 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(35.0),
+                    padding: const EdgeInsets.all(30.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,8 +49,11 @@ class SignUp extends StatelessWidget {
                           "Get Started",
                           style: Theme.of(context).textTheme.headline1,
                         ),
-                        FormGet(),
-                        SignButton(),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const FormGet(),
+                        const SignButton(),
                       ],
                     ),
                   ),

@@ -19,17 +19,73 @@ class _FormGetState extends State<FormGet> {
     return Column(
       children: [
         TextFormField(
-          decoration: const InputDecoration(hintText: "Name"),
+          decoration: const InputDecoration(
+            hintText: "Name",
+            hintStyle: TextStyle(
+              color: AppStyles.colorSegundary,
+              fontFamily: "OpenSans",
+              fontSize: 16,
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppStyles.colorSegundary,
+              ),
+            ),
+          ),
+          style: const TextStyle(
+            color: AppStyles.colorSegundary,
+            fontFamily: "OpenSans",
+            fontSize: 16,
+          ),
+
+          textAlignVertical: TextAlignVertical.bottom,
+
           //maxLength: 40,
           // validator: (String val){ nome = val},
         ),
         TextFormField(
-          decoration: const InputDecoration(hintText: "E-mail"),
+          decoration: const InputDecoration(
+            hintText: "E-mail",
+            hintStyle: TextStyle(
+              color: AppStyles.colorSegundary,
+              fontFamily: "OpenSans",
+              fontSize: 16,
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppStyles.colorSegundary,
+              ),
+            ),
+          ),
+          style: const TextStyle(
+            color: AppStyles.colorSegundary,
+            fontFamily: "OpenSans",
+            fontSize: 16,
+          ),
+          textAlignVertical: TextAlignVertical.bottom,
           //maxLength: 40,
           // validator: (String val){ nome = val},
         ),
         TextFormField(
-          decoration: const InputDecoration(hintText: "Password"),
+          decoration: const InputDecoration(
+            hintText: "Password",
+            hintStyle: TextStyle(
+              color: AppStyles.colorSegundary,
+              fontFamily: "OpenSans",
+              fontSize: 16,
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppStyles.colorSegundary,
+              ),
+            ),
+          ),
+          style: const TextStyle(
+            color: AppStyles.colorSegundary,
+            fontFamily: "OpenSans",
+            fontSize: 16,
+          ),
+          textAlignVertical: TextAlignVertical.bottom,
           //maxLength: 40,
           // validator: (String val){ nome = val},
         ),
