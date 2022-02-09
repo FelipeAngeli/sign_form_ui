@@ -18,6 +18,7 @@ class CustomFiel extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        contentPadding: const EdgeInsets.symmetric(vertical: 8),
         hintText: hinText,
         hintStyle: const TextStyle(
           color: AppStyles.colorSegundary,
