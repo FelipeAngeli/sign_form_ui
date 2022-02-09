@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sign_form_ui/app/components/background_widget.dart';
-import 'package:sign_form_ui/app/components/form_get.dart';
+import 'package:sign_form_ui/app/components/custom_check.dart';
+import 'package:sign_form_ui/app/components/custom_field.dart';
+
 import 'package:sign_form_ui/app/components/sign_button.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({Key? key}) : super(key: key);
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +53,25 @@ class SignUp extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                         ),
-                        const FormGet(),
-                        const SignButton(),
+                        const CustomFiel(
+                          hinText: "Name",
+                        ),
+                        const CustomFiel(
+                          hinText: "E-mail",
+                        ),
+                        const CustomFiel(
+                          hinText: "Password",
+                        ),
+                        const CustomCheck(
+                          textOne: "I agree to the",
+                          textTwo: "Terms of Service",
+                          textTree: "and",
+                          textFour: "Privacy Policy",
+                        ),
+                        const SignButton(
+                          textSign: "Sign Up",
+                          textLink: "Sign In",
+                        ),
                       ],
                     ),
                   ),

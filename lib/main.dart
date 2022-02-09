@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sign_form_ui/core/style.dart';
 
-import 'app/pages/sign_up.dart';
+import 'app/pages/sign_ip_page.dart';
+import 'app/pages/sign_up_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,17 +35,17 @@ class MyApp extends StatelessWidget {
               color: Colors.red),
           headline4: TextStyle(
               fontFamily: "OpenSans",
-              fontSize: 14,
+              fontSize: 12,
               fontWeight: FontWeight.bold),
           headline5: TextStyle(
               fontFamily: "OpenSans",
-              fontSize: 14,
+              fontSize: 12,
               color: AppStyles.colorPrimary,
               fontWeight: FontWeight.bold,
               decoration: TextDecoration.underline),
         ),
       ),
-      home: const SignUp(),
+      home: const SignUpPage(),
     );
   }
 }

@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:sign_form_ui/core/style.dart';
 
 class SignButton extends StatelessWidget {
-  const SignButton({Key? key}) : super(key: key);
+  final String textSign;
+  final String textLink;
+  const SignButton({
+    Key? key,
+    this.textSign = "",
+    this.textLink = "",
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -19,14 +25,14 @@ class SignButton extends StatelessWidget {
                 height: 50,
               ),
               Text(
-                "Sign Up",
+                textSign,
                 style: Theme.of(context).textTheme.headline2,
               ),
               const SizedBox(
                 height: 30,
               ),
               Text(
-                "Sign in",
+                textLink,
                 style: Theme.of(context).textTheme.headline5,
               ),
             ],
