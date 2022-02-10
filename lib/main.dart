@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sign_form_ui/core/style.dart';
 
-import 'app/pages/sign_up_page.dart';
+import 'app/pages/create_login_page.dart';
+import 'app/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
               decoration: TextDecoration.underline),
         ),
       ),
-      home: const SignUpPage(),
+      home: CreateLoginPage(),
     );
   }
 }

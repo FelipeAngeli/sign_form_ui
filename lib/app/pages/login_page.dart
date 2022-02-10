@@ -5,8 +5,11 @@ import 'package:sign_form_ui/app/components/custom_field.dart';
 
 import 'package:sign_form_ui/app/components/sign_button.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+import 'home_page.dart';
+
+class LoginPage extends StatelessWidget {
+  LoginPage({Key? key}) : super(key: key);
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -54,19 +57,52 @@ class SignInPage extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                         ),
-                        const CustomFiel(hinText: "E-mail"),
-                        const CustomFiel(hinText: "Passdord"),
-                        const CustomCheck(
-                          textOne: "Remember me",
-                          width: 90,
-                          textFive: "Forgot password?",
+                        Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              CustomFiel(
+                                // key: _formKey,
+                                hinText: "E-mail",
+                                validator: (value) {
+                                  if (!value!.contains("@")) {
+                                    return "Esse e-mail está incorreto";
+                                  }
+                                },
+                              ),
+                              CustomFiel(
+                                // key: _formKey,
+                                hinText: "Passdord",
+                                obscureText: true,
+                                validator: (value) {
+                                  if (value!.length < 6) {
+                                    return "A senha deve ter pelo menos 6 caracteres";
+                                  }
+                                },
+                              ),
+                              const CustomCheck(
+                                textOne: "Remember me",
+                                width: 90,
+                                textFive: "Forgot password?",
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(
                           height: 30,
                         ),
-                        const SignButton(
+                        SignButton(
                           textSign: "Sign In",
                           textLink: "Sign Up",
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomePage()));
+                              _doLogin();
+                            }
+                          },
                         ),
                       ],
                     ),
@@ -78,5 +114,13 @@ class SignInPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _doLogin() async {
+    if (_formKey.currentState!.validate()) {
+      print("valido");
+    } else {
+      print("invalido");
+    }
   }
 }

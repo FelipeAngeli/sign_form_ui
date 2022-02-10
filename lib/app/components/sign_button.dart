@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:sign_form_ui/app/pages/sign_ip_page.dart';
+
 import 'package:sign_form_ui/core/style.dart';
 
 class SignButton extends StatelessWidget {
   final String textSign;
   final String textLink;
+  final Function()? onPressed;
   const SignButton({
     Key? key,
     this.textSign = "",
     this.textLink = "",
+    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -33,12 +35,10 @@ class SignButton extends StatelessWidget {
                 height: 30,
               ),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignInPage()));
-                },
+                // onTap: () {
+                //   Navigator.push(context,
+                //       MaterialPageRoute(builder: (context) => SignInPage()));
+                // },
                 child: Text(
                   textLink,
                   style: Theme.of(context).textTheme.headline5,
@@ -47,10 +47,7 @@ class SignButton extends StatelessWidget {
             ],
           ),
           FloatingActionButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const SignInPage()));
-            },
+            onPressed: onPressed as void Function(),
             elevation: 0.0,
             backgroundColor: AppStyles.colorPrimary,
             child: const Icon(Icons.arrow_forward_outlined),

@@ -3,9 +3,11 @@ import 'package:sign_form_ui/app/components/custom_check.dart';
 import 'package:sign_form_ui/app/components/custom_field.dart';
 
 import 'package:sign_form_ui/app/components/sign_button.dart';
+import 'package:sign_form_ui/app/pages/login_page.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class CreateLoginPage extends StatelessWidget {
+  CreateLoginPage({Key? key}) : super(key: key);
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -53,24 +55,58 @@ class SignUpPage extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                         ),
-                        const CustomFiel(
-                          hinText: "Name",
+                        Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              CustomFiel(
+                                // key: _formKey,
+                                hinText: "Name",
+                                validator: (value) {
+                                  if (value!.length < 5) {
+                                    return "Esse nome é invalido";
+                                  }
+                                },
+                              ),
+                              CustomFiel(
+                                // key: _formKey,
+                                hinText: "E-mail",
+                                validator: (value) {
+                                  if (!value!.contains("@")) {
+                                    return "Esse e-mail está incorreto";
+                                  }
+                                },
+                              ),
+                              CustomFiel(
+                                // key: _formKey,
+                                hinText: "Password",
+                                validator: (value) {
+                                  if (value!.length < 6) {
+                                    return "A senha deve ter pelo menos 6 caracteres";
+                                  }
+                                },
+                              ),
+                              const CustomCheck(
+                                textOne: "I agree to the",
+                                textTwo: " Terms of Service",
+                                textTree: " and",
+                                textFour: " Privacy Policy",
+                              ),
+                            ],
+                          ),
                         ),
-                        const CustomFiel(
-                          hinText: "E-mail",
-                        ),
-                        const CustomFiel(
-                          hinText: "Password",
-                        ),
-                        const CustomCheck(
-                          textOne: "I agree to the",
-                          textTwo: "Terms of Service",
-                          textTree: "and",
-                          textFour: "Privacy Policy",
-                        ),
-                        const SignButton(
+                        SignButton(
                           textSign: "Sign Up",
                           textLink: "Sign In",
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()));
+                              _doLogin();
+                            }
+                          },
                         ),
                       ],
                     ),
@@ -82,6 +118,14 @@ class SignUpPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _doLogin() async {
+    if (_formKey.currentState!.validate()) {
+      print("valido");
+    } else {
+      print("invalido");
+    }
   }
 }
 
